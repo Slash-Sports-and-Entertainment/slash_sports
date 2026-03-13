@@ -1,0 +1,71 @@
+@keyframes heroFadeIn {
+  0%{
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes blinkingArrow {
+  0% {opacity: .75;}
+  50% {opacity: .25;}
+  100% {opacity: .75;}
+}
+
+@keyframes navSlideOut {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0); 
+  }
+}
+
+@keyframes leftLogoSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  } 
+}
+
+@keyframes rightLogoSlide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  } 
+}
+
+@keyframes quote-slide-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cite-tags-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes paragraphs-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
