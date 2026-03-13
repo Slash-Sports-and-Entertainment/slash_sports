@@ -90,7 +90,7 @@
   width: auto;
   height: 55px;  
   background-color: rgba(0, 0, 0, .75);
-  background-image: url("../public/images/diagonal-for-sections.svg");
+  background-image: url("/images/diagonal-for-sections.svg");
   border-radius: 4px;
   padding-right: 2rem;
   animation: cite-tags-fade-in 3s ease-in;
@@ -253,7 +253,7 @@ button.cancel-select-testimonial {
     border-radius: 4px;
     margin-bottom: 1em;
     padding: .25em 1em;
-    background-image: url("../public/images/diagonal-for-sections.svg");
+    background-image: url("/images/diagonal-for-sections.svg");
     background-color: rgba(0, 0, 0, .75);
   }
   

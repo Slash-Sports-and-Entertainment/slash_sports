@@ -235,7 +235,7 @@ nav {
   right: 0;
   padding: 0 2em;
   background-color: #000;
-  background-image: url("../public/images/diagonal-for-sections.svg");
+  background-image: url("/images/diagonal-for-sections.svg");
   background-repeat: no-repeat;
   background-size: cover;
   color: #f8f8fa;
@@ -922,7 +922,7 @@ nav {
   max-width: 700px;
   height: 30px;
   font-size: 1rem;
-  background-image: url("../public/images/diagonal-for-sections.svg");
+  background-image: url("/images/diagonal-for-sections.svg");
   color: #f88303;
   background-color: rgba(0, 0, 0, 1);
   border: 1px solid rgba(248, 248, 250, .5);
@@ -943,7 +943,7 @@ nav {
 
 .bio-button.disabled:hover,
 .bio-button.disabled:focus {
-  background-image: url("../public/images/diagonal-for-sections.svg");
+  background-image: url("/images/diagonal-for-sections.svg");
   color: #f88303;
   background-color: rgba(0, 0, 0, 1);
 }

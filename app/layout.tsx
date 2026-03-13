@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import type { RootLayoutProps } from "@/app/types/index";
-import "./globals.css";
-import "./slash.css";
-import "./slash-intl.css";
-import "./animations.css";
+import "./css/globals.css";
+import "./css/slash.css";
+import "./css/slash-intl.css";
+import "./css/animations.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL || "http://localhost:3000"),
