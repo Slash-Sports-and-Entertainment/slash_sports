@@ -1,0 +1,7 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+  <pattern id="diagonalStripes" width="1" height="1" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <rect width=".5" height="2" fill=""/>
+    <rect x=".5" width=".5" height="1" fill="rgba(255, 255, 255, .075)"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#diagonalStripes)"/>
+</svg>
