@@ -39,19 +39,21 @@ export default function NIL(): JSX.Element {
 
   return(
     <section id="nil">
-      <video 
-        width={600} 
-        height={400} 
-        id="nil-vid"
-        muted 
-        loop 
-        preload="auto"
-        playsInline
-        ref={videoRef}
-      >
-        <source src="/videos/nil-video.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
+      <div className="nil-vid-container">
+        <video 
+          width={600} 
+          height={400} 
+          id="nil-vid"
+          muted 
+          loop 
+          preload="auto"
+          playsInline
+          ref={videoRef}
+        >
+          <source src="/videos/nil-video.mp4" type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div id="nil-wrapper" className="wrapper">
         <h1>
           NIL
