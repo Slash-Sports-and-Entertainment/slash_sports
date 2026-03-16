@@ -94,7 +94,7 @@ header {
 }
 
 #hamburger-icon li {
-  background-color: #f8f8fa;
+  background-color: #f1f1f1;
   list-style: none;
   margin: .125em;
   width: 100%;
@@ -155,7 +155,7 @@ header {
   font-size: .875rem;
   font-weight: 600;
   word-spacing: .0875em;
-  color: #f8f8fa;
+  color: #f1f1f1;
   z-index: 3;
   text-align: center;
   text-transform: uppercase;
@@ -238,7 +238,7 @@ nav {
   background-image: url("/images/diagonal-for-sections.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  color: #f8f8fa;
+  color: #f1f1f1;
   animation: navSlideOut 1.25s ease-out 0s;
 }
 
@@ -305,7 +305,7 @@ nav {
 
 .insta-icon {
   font-size: 1.75em;
-  color:#f8f8fa;
+  color:#f1f1f1;
 }
 
 @media screen and (min-width: 680px) {
@@ -323,6 +323,11 @@ nav {
   .cancel-btn {
     width: 2em;
     cursor: pointer;
+    border-radius: 0;
+  }
+
+  .cancel-btn:hover {
+    border-bottom: 2px solid #f1f1f1;
   }
 
   .header-nav {
@@ -340,8 +345,9 @@ nav {
 
   .insta-icon {
     font-size: 2.25em;
-    color:#f8f8fa;
+    color:#f1f1f1;
   }
+  
 }
 
 #overview-img, 
@@ -1017,7 +1023,12 @@ nav {
   position: absolute;
   top: 1em;
   right: 1em;
+  border-radius: 0;
   cursor: pointer;
+}
+
+.cancel-bio:hover {
+  border-bottom: 2px solid #f1f1f1;
 }
 
 .person-bio-container {
@@ -1144,7 +1155,7 @@ footer {
 }
 
 .foot-socials .insta-icon {
-  color: #f8f8fa;
+  color: #f1f1f1;
 }
 
 .jump-top-arrow-container {
