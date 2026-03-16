@@ -103,7 +103,7 @@ export default function Header() {
               <li className="header-links">Team</li>
             </Link>
             <Link href="#">
-              <li className="header-links">Contact</li>
+              {/* <li className="header-links">Contact</li> */}
             </Link>
           </ul>
           <Link 
