@@ -40,22 +40,28 @@ export const testimonials = [
   },
   {
     id: 2,
-    firstName: "Levi",
-    lastName: "Randolph",
-    quote: `"When me and Charles decided to start 
-    working together, I was at a pivotal point in my 
-    journey to really elevate my career. We laid out 
-    all the goals and what I wanted to accomplish. From 
-    there, Charles went to work on establishing a plan. 
-    I appreciate the hard work he’s done for me as well 
-    as being transparent and allowing me to learn 
-    throughout the process. My goal was to make it to 
-    the Euroleague and establish myself at a high level 
-    in Europe. In 4 years, we made it happen! He’s not 
-    just an agent, but a friend also. Not many around 
-    like him"`,
-    image: "/images/levi-randolph.jpeg",
-    alt: "Photo of SLASH basketball athlete Levi Randolph"
+    firstName: "Isaiah",
+    lastName: "Austin",
+    quote: `"Charles is more than an agent to me. He’s 
+    a friend and a brother. When I first signed with 
+    him in 2017 he promised me a relationship that 
+    would extend beyond the basketball player I was. He 
+    told me he would be with me through the fire, no 
+    matter what. In my career I have been cut, injured, 
+    and given up on by many but Charles always had 
+    faith in me. He constantly poured love into my ear 
+    when I needed it most but also was not afraid to 
+    tell me what it was that I was doing wrong in 
+    situations as well. When people ask me about 
+    Charles I always tell them about his leadership, he 
+    leads by serving and those are always the best 
+    leaders in the world, the ones who are not afraid 
+    to fight with you. In my 5 years he helped me 
+    develop as a man but also challenged me to develop 
+    as a ball player. He’s the best in the game, second 
+    to none. Slash VS Everybody!!!"`,
+    image: "/images/isaiah-austin.jpeg",
+    alt: "Photo of SLASH basketball athlete Isaiah Austin"
   },
   {
     id: 3,
@@ -284,30 +290,5 @@ export const testimonials = [
     agents from the beginning!"`,
     image: "/images/marcus-ginyard.jpeg",
     alt: "Photo of SLASH basketball athlete Marcus Ginyard"
-  },
-  {
-    id: 16,
-    firstName: "Isaiah",
-    lastName: "Austin",
-    quote: `"Charles is more than an agent to me. He’s 
-    a friend and a brother. When I first signed with 
-    him in 2017 he promised me a relationship that 
-    would extend beyond the basketball player I was. He 
-    told me he would be with me through the fire, no 
-    matter what. In my career I have been cut, injured, 
-    and given up on by many but Charles always had 
-    faith in me. He constantly poured love into my ear 
-    when I needed it most but also was not afraid to 
-    tell me what it was that I was doing wrong in 
-    situations as well. When people ask me about 
-    Charles I always tell them about his leadership, he 
-    leads by serving and those are always the best 
-    leaders in the world, the ones who are not afraid 
-    to fight with you. In my 5 years he helped me 
-    develop as a man but also challenged me to develop 
-    as a ball player. He’s the best in the game, second 
-    to none. Slash VS Everybody!!!"`,
-    image: "/images/isaiah-austin.jpeg",
-    alt: "Photo of SLASH basketball athlete Isaiah Austin"
   },
 ]
