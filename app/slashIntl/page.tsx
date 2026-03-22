@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import Image from "next/image";
 import { PiArrowDownLight } from "react-icons/pi";
 import AboutUs from "./components/AboutUs";
@@ -8,12 +7,13 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import sLogoWhite from "@/public/images/s-logo-white.png"
 import { useUrlSectionTracker } from "../lib/hooks/useUrlSectionTracker";
 import { useStyleObserver } from "../lib/hooks/useStyleObserver";
-
+import { useSectionLock } from "../lib/hooks/useSectionLock";
 
 export default function SlashIntlHome() {
   useUrlSectionTracker();
   useStyleObserver();
-  
+  useSectionLock();
+
   return(
     <main id="slashIntl-container">
       <section id="hero-slashIntl">

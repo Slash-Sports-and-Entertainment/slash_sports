@@ -12,12 +12,12 @@ export function useSectionLock() {
     const sections = document.querySelectorAll("section, footer");
     if (!sections.length) return;
 
-    // 1. TRACK LOADING STATE: Set a duration that matches your Hero animation
+    // TRACK LOADING STATE: Set a duration that matches your Hero animation
     const loadTimeout = setTimeout(() => {
       isPageLoading.current = false;
     }, 1000);
 
-    // 1. Track Active Section
+    // Track Active Section
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -33,7 +33,7 @@ export function useSectionLock() {
 
     sections.forEach((section) => observer.observe(section));
 
-    // 2. Navigation Logic
+    // Navigation Logic
     const navigate = (direction: number) => {
       if (isLocked.current || isPageLoading.current) return;
 
@@ -56,8 +56,31 @@ export function useSectionLock() {
       }
     };
 
-    // 3. Wheel Handler with Trackpad Logic
+    // Wheel Handler with Trackpad Logic
     const handleWheel = (e: WheelEvent) => {
+      // Check if the scroll target is a scrollable element
+      const target = e.target as HTMLElement;
+
+      const isInternalScroll = (el: HTMLElement | null): boolean => {
+        if (!el || el === document.body) return false;
+        const style = window.getComputedStyle(el);
+        const overflowY = style.getPropertyValue("overflow-y");
+        // Check if element is meant to scroll and actually has content to scroll
+        if ((overflowY === "auto" || overflowY === "scroll") && el.scrollHeight > el.clientHeight) {
+          // If we're at the top scrolling up or bottom scrolling down, 
+          // we might want to let the section lock take over, 
+          // otherwise, stay inside the element.
+          const isAtTop = el.scrollTop === 0 && e.deltaY < 0;
+          const isAtBottom = Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop) < 1 && e.deltaY > 0;
+          
+          return !isAtTop && !isAtBottom;
+        }
+        return isInternalScroll(el.parentElement);
+      };
+
+      if (isInternalScroll(target)) return; // Allow internal scrolling
+      
+      // If our-work section let our-work section handle scrolling
       if (activeId === "our-work") return;
       
       e.preventDefault();
@@ -87,7 +110,7 @@ export function useSectionLock() {
       }
     };
 
-    // 4. Keyboard Navigation
+    // Keyboard Navigation
     const handleKeyDown = (e: KeyboardEvent) => {
       if (activeId === "our-work" || isLocked.current || isPageLoading) return;
       if (["ArrowDown", "ArrowUp", " "].includes(e.key)) {
@@ -96,7 +119,7 @@ export function useSectionLock() {
       }
     };
 
-    // 5. Horizontal Exit Hand-off
+    // Horizontal Exit Hand-off
     const handleJump = (e: any) => navigate(e.detail.direction);
 
     window.addEventListener("wheel", handleWheel, { passive: false });

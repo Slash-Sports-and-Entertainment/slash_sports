@@ -69,7 +69,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
 
       // --- SPLIT EXIT LOGIC (UPWARD & DOWNWARD) ---
 
-      // CASE A: TOUCHSCREEN (Forgiving buffers for "Flicking" out)
+      // TOUCHSCREEN (Forgiving buffers for "Flicking" out)
       if (isTouch) {
         // Upward Exit
         if (isScrollingUp && (progressRef.current < 35 || isAtStart)) {
@@ -84,13 +84,13 @@ export function useHorizontalLock(): HorizontalScrollReturn {
           slider.classList.add("is-released");
           progressRef.current = 100;
           setProgress(100);
-          // 2. Tell the vertical hook to jump to the next section
+          // Tell the vertical hook to jump to the next section
           window.dispatchEvent(new CustomEvent("jump-section", { detail: { direction: 1 } }));
           return false; // Hand control to native vertical scroll immediately
         }
       }
 
-      // CASE B: TRACKPAD/WHEEL (Strict 5px checks + Momentum protection)
+      // TRACKPAD/WHEEL (Strict 5px checks + Momentum protection)
       if (!isTouch) {
         // Upward Exit
         if (isScrollingUp && isAtStart) {
@@ -114,7 +114,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
           ? scrollPosition.current >= (maxScroll - 5)
           : scrollPosition.current >= (maxScroll - 45); 
 
-        // 2. DIRECTIONAL RESET (Fixes Trackpad Delay)
+        // DIRECTIONAL RESET (Fixes Trackpad Delay)
         const wasAccumulatingDown = touchpadAccumulator.current > 0;
         const wasAccumulatingUp = touchpadAccumulator.current < 0;
         if ((isCurrentlyScrollingUp && wasAccumulatingDown) || (!isCurrentlyScrollingUp && wasAccumulatingUp)) {
@@ -128,7 +128,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
 
         touchpadAccumulator.current += deltaY;
       
-        // 3. RELEASE CHECK (END OF SECTION): Instant snap kills momentum
+        // RELEASE CHECK (END OF SECTION): Instant snap kills momentum
         if (isScrollingDown && isAtEnd) {
           // If we are at slide 3 but the bar isn't full, charge the last 10%
           if (progressRef.current < 100) {
@@ -144,7 +144,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
             return true; 
           }
 
-          // 3. FINAL JUMP: Only exit if bar is 100% AND a new deliberate flick happens
+          // FINAL JUMP: Only exit if bar is 100% AND a new deliberate flick happens
           if (Math.abs(touchpadAccumulator.current) >= 20) {
             slider.classList.add("is-released");
             window.dispatchEvent(new CustomEvent("jump-section", { detail: { direction: 1 } }));
@@ -158,11 +158,11 @@ export function useHorizontalLock(): HorizontalScrollReturn {
         slider.classList.remove("is-released");
         if (event.cancelable) event.preventDefault();
 
-        // 4. MOMENTUM & SENSITIVITY GUARDS
+        // MOMENTUM & SENSITIVITY GUARDS
         const sensitivity = isTouch ? 40 : 100; // Higher threshold for wheel/trackpad
         const cooldown = isTouch ? 400 : 600;   // Longer cooldown to swallow trackpad inertia
 
-        // NEW: Bypass guards when already at the end and trying to scroll down to exit.
+        // Bypass guards when already at the end and trying to scroll down to exit.
         // This makes the transition into the next section feel "normal" and instant.
         const isExiting = isScrollingDown && isAtEnd;
 
@@ -243,7 +243,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
       const touchY = e.touches[0].clientY;
       const deltaY = touchStartY - touchY; 
 
-      // SENSITIVITY FIX: Lowered to 2px for instant breakout
+      // SENSITIVITY
       if (Math.abs(deltaY) > 2) { 
         const isHorizontal = handleGesture(deltaY, e);
         

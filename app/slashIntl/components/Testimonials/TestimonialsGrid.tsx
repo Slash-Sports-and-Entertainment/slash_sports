@@ -4,7 +4,7 @@ import { testimonials } from "@/app/data/testimonials";
 import Image from "next/image";
 import cancel from "../../../../public/images/cancel.svg";
 import BreakParagraphs from "@/app/lib/components/BreakParagraphs";
-import { PiArrowDownLight } from "react-icons/pi";
+
 
 export default function TestimonialGrid() {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null)
