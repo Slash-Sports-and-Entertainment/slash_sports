@@ -19,7 +19,7 @@
 
 
 html, body {
-  overflow-x: hidden;
+  overflow: hidden;
   scrollbar-width: auto;
   -ms-overflow-style: auto;
 }

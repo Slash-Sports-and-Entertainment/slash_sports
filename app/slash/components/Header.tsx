@@ -93,8 +93,8 @@ export default function Header() {
             <Link href="/">
               <li className="header-links">Home</li>
             </Link>
-            <Link href="#overview">
-              <li className="header-links">About Us</li>
+            <Link href="#who-we-are">
+              <li className="header-links">Who We Are</li>
             </Link>
             <Link href="#our-work">
               <li className="header-links">Our Work</li>

@@ -10,10 +10,12 @@ import Image from "next/image";
 import sLogoWhite from "@/public/images/s-logo-white.png"
 import { useUrlSectionTracker } from "../lib/hooks/useUrlSectionTracker";
 import { useStyleObserver } from "../lib/hooks/useStyleObserver";
+import { useSectionLock } from "../lib/hooks/useSectionLock";
 
 export default function SlashHome() {
   useUrlSectionTracker();
   useStyleObserver();
+  useSectionLock();
   
   return(
     <main id="slash-container">
