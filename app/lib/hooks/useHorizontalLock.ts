@@ -103,7 +103,9 @@ export function useHorizontalLock(): HorizontalScrollReturn {
         }
       }
 
-      const isPinned = rect.top <= 20 && rect.bottom > window.innerHeight;
+      const isPinned = isTouch 
+      ? (rect.top < 100 && rect.bottom > 100) // Much wider window for mobile
+      : (rect.top <= 20 && rect.bottom > window.innerHeight);
 
       if (isPinned) {
         const gap = isTouch ? 0 : 10;

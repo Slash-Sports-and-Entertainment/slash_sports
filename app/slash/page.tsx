@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import CompOverview from "./components/MainContent/CompOverview"
 import OurWork from "./components/MainContent/OurWork";
 import WorkedWith from "./components/MainContent/WorkedWith";
@@ -11,6 +10,7 @@ import sLogoWhite from "@/public/images/s-logo-white.png"
 import { useUrlSectionTracker } from "../lib/hooks/useUrlSectionTracker";
 import { useStyleObserver } from "../lib/hooks/useStyleObserver";
 import { useSectionLock } from "../lib/hooks/useSectionLock";
+
 
 export default function SlashHome() {
   useUrlSectionTracker();

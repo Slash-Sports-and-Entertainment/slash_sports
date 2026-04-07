@@ -6,11 +6,13 @@ import Link from "next/link";
 import wordLogo from "@/public/images/slash-logo-orange.svg";
 import cancelIcon from "@/public/images/cancel.svg";
 import { FaInstagram } from "react-icons/fa";
+import { handleNavLinks } from "@/app/lib/utils/handleNavLinks";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
+  // Nav drop down/slideout
   function dropDown(e: MouseEvent) {
     e.preventDefault();
     
@@ -21,7 +23,7 @@ export default function Header() {
     }
   }
   
-  
+  // Click outside of nav dropdown to close it
   useEffect(() => {
     const handleClickOutside = (e: PointerEvent) => {
       if(isNavOpen && dropDownRef.current && !dropDownRef.current.contains(e.target as HTMLElement)) {
@@ -39,6 +41,12 @@ export default function Header() {
       document.removeEventListener("click", handleClickOutside);
     }
   }, [isNavOpen]);
+
+  // Allow nav links to ignore page lock caused by useSectionLock hook
+  const handleLinkClick = () => {
+    handleNavLinks();
+    setIsNavOpen(false);
+  };
 
   return(
     <header id="slashIntl-header">
@@ -90,20 +98,17 @@ export default function Header() {
           </div>
 
           <ul className="header-nav">
-            <Link href="/">
+            <Link href="/" onClick={handleLinkClick}>
               <li className="header-links">Home</li>
             </Link>
-            <Link href="#about-us">
+            <Link href="#about-us" onClick={handleLinkClick}>
               <li className="header-links">About Us</li>
             </Link>
-            <Link href="#testimonials">
+            <Link href="#testimonials" onClick={handleLinkClick}>
               <li className="header-links">Testimonials</li>
             </Link>
-            <Link href="#meet-intl-team">
+            <Link href="#meet-intl-team" onClick={handleLinkClick}>
               <li className="header-links">Team</li>
-            </Link>
-            <Link href="#">
-              {/* <li className="header-links">Contact</li> */}
             </Link>
           </ul>
           <Link 

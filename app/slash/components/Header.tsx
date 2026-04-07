@@ -6,11 +6,13 @@ import Link from "next/link";
 import wordLogo from "@/public/images/slash-logo-orange.svg";
 import cancelIcon from "@/public/images/cancel.svg";
 import { FaInstagram } from "react-icons/fa";
+import { handleNavLinks } from "@/app/lib/utils/handleNavLinks";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   
+  // Nav drop down/slideout
   function dropDown(e: MouseEvent) {
     e.preventDefault();
     
@@ -21,6 +23,7 @@ export default function Header() {
     }
   }
   
+  // Click outside of nav dropdown to close it
   useEffect(() => {
     const handleClickOutside = (e: PointerEvent) => {    
       if(isNavOpen && dropDownRef.current && !dropDownRef.current.contains(e.target as HTMLElement)) {
@@ -38,6 +41,12 @@ export default function Header() {
       document.removeEventListener("click", handleClickOutside);
     }
   }, [isNavOpen]);
+
+  // Allow nav links to ignore page lock caused by useSectionLock hook
+  const handleLinkClick = () => {
+    handleNavLinks();
+    setIsNavOpen(false);
+  };
 
   return(
     <header id="slash-header">
@@ -90,22 +99,22 @@ export default function Header() {
           </div>
 
           <ul className="header-nav">
-            <Link href="/">
+            <Link href="/" onClick={handleLinkClick}>
               <li className="header-links">Home</li>
             </Link>
-            <Link href="#who-we-are">
+            <Link href="#who-we-are" onClick={handleLinkClick}>
               <li className="header-links">Who We Are</li>
             </Link>
-            <Link href="#our-work">
+            <Link href="#our-work" onClick={handleLinkClick}>
               <li className="header-links">Our Work</li>
             </Link>
-            <Link href="#worked-with">
+            <Link href="#worked-with" onClick={handleLinkClick}>
               <li className="header-links">Worked With</li>
             </Link>
-            <Link href="#nil">
+            <Link href="#nil" onClick={handleLinkClick}>
               <li className="header-links">NIL</li>
             </Link>
-            <Link href="#meet-team">
+            <Link href="#meet-team" onClick={handleLinkClick}>
               <li className="header-links">Team</li>
             </Link>
           </ul>

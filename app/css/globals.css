@@ -20,7 +20,8 @@
 
 html, body {
   overflow: hidden;
-  scrollbar-width: auto;
+  touch-action: none;
+  scrollbar-width: none;
   -ms-overflow-style: auto;
 }
 
@@ -49,6 +50,12 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: scroll;
+  touch-action: pan-y;
+}
+
+body.is-locked {
+  touch-action: none !important;
+  overflow: hidden !important;
 }
 
 .isActive {
@@ -344,14 +351,6 @@ img {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-#not-found-wrapper > h1,
-#error-page-wrapper > h1,
-#global-error-wrapper > h1 {
-  text-transform: uppercase;
-  font-size: 3rem;
-  margin: 0;
 }
 
 #not-found-wrapper > h1,

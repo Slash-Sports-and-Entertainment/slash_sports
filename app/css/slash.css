@@ -512,7 +512,7 @@ nav {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   overflow: hidden;
-  touch-action: pan-y; 
+  touch-action: none; 
   overscroll-behavior-x: contain; 
   -webkit-overflow-scrolling: auto;
   border-radius: 4px;
@@ -526,7 +526,7 @@ nav {
   
   .our-work-scroll-container {
     gap: 0;
-    touch-action: pan-y; 
+    touch-action: none; 
   }
   
   .our-work-scroll-container:not(.is-released) {

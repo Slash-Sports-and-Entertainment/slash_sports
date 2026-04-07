@@ -104,7 +104,7 @@ export default function OurWork(): JSX.Element {
         <div 
           className="progress-container"
           style={{ 
-            opacity: isSectionVisible && progress > 5 && progress < 99 ? 1 : 0, 
+            opacity: isSectionVisible && progress >= 5 && progress < 99 ? 1 : 0, 
             pointerEvents: 'none',
             transition: isSectionVisible ? 'opacity 0.3s ease' : 'none'
           }}

@@ -13,7 +13,7 @@ export default function SlashIntlHome() {
   useUrlSectionTracker();
   useStyleObserver();
   useSectionLock();
-
+  
   return(
     <main id="slashIntl-container">
       <section id="hero-slashIntl">

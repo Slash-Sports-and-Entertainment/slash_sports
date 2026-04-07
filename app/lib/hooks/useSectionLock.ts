@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function useSectionLock() {
   const isLocked = useRef(false);
-  const isPageLoading = useRef(true);
+  const isNavigating = useRef(false);
   const currentIndex = useRef(0);
   const [activeId, setActiveId] = useState("");
   const touchpadAccumulator = useRef(0);
@@ -12,30 +12,59 @@ export function useSectionLock() {
     const sections = document.querySelectorAll("section, footer");
     if (!sections.length) return;
 
-    // TRACK LOADING STATE: Set a duration that matches your Hero animation
-    const loadTimeout = setTimeout(() => {
-      isPageLoading.current = false;
-    }, 1000);
-
     // Track Active Section
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
+          const newIndex = Array.from(sections).indexOf(e.target as HTMLElement);
+          
           setActiveId(e.target.id);
           // Only sync index if we aren't currently mid-animation
-          if (!isLocked.current) {
-            const index = Array.from(sections).indexOf(e.target as HTMLElement);
-            if (index !== -1) currentIndex.current = index;
+          
+          // --- THE CONDITIONAL SYNC ---
+          if (isLocked.current || isNavigating.current) {
+            if (newIndex !== -1) { 
+              currentIndex.current = newIndex;
+              setActiveId(e.target.id);
+            }
+          }
+
+
+          // If a user swiped into a NEW section and we aren't already locked:
+          if (newIndex !== currentIndex.current && !isLocked.current && activeId === "our-work" && !isNavigating.current) {
+            
+            // 1. ENGAGE THE HARD LOCK
+            isLocked.current = true;
+            currentIndex.current = newIndex;
+            document.body.classList.add("is-locked");
+
+            // 2. FORCE THE CENTER (In case they swiped fast)
+            e.target.scrollIntoView({ behavior: "smooth" });
+
+            // RELEASE AFTER COOLDOWN
+            setTimeout(() => {
+                isLocked.current = false;
+                document.body.classList.remove("is-locked");
+                touchpadAccumulator.current = 0;
+            }, 1000); 
           }
         }
       });
-    }, { threshold: 0.2 }); // Lower threshold for faster detection
+    }, { threshold: 0.5 }); // Lower threshold for faster detection
 
     sections.forEach((section) => observer.observe(section));
 
+    // Navigation link handler
+    const handleNavJump = () => {
+      isNavigating.current = true;
+      setTimeout(() => {
+        isNavigating.current = false;
+      }, 1200);
+    }
+
     // Navigation Logic
     const navigate = (direction: number) => {
-      if (isLocked.current || isPageLoading.current) return;
+      if (isLocked.current) return;
 
       const nextIndex = currentIndex.current + direction;
 
@@ -67,9 +96,6 @@ export function useSectionLock() {
         const overflowY = style.getPropertyValue("overflow-y");
         // Check if element is meant to scroll and actually has content to scroll
         if ((overflowY === "auto" || overflowY === "scroll") && el.scrollHeight > el.clientHeight) {
-          // If we're at the top scrolling up or bottom scrolling down, 
-          // we might want to let the section lock take over, 
-          // otherwise, stay inside the element.
           const isAtTop = el.scrollTop === 0 && e.deltaY < 0;
           const isAtBottom = Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop) < 1 && e.deltaY > 0;
           
@@ -86,7 +112,7 @@ export function useSectionLock() {
       e.preventDefault();
 
       // If locked, keep the bucket empty and ignore input
-      if (isLocked.current || isPageLoading.current) {
+      if (isLocked.current) {
         touchpadAccumulator.current = 0;
         return;
       }
@@ -110,9 +136,10 @@ export function useSectionLock() {
       }
     };
 
+
     // Keyboard Navigation
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (activeId === "our-work" || isLocked.current || isPageLoading) return;
+      if (activeId === "our-work" || isLocked.current) return;
       if (["ArrowDown", "ArrowUp", " "].includes(e.key)) {
         e.preventDefault();
         navigate(e.key === "ArrowUp" ? -1 : 1);
@@ -125,12 +152,15 @@ export function useSectionLock() {
     window.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("jump-section", handleJump);
+    window.addEventListener("nav-link-clicked", handleNavJump);
     
     return () => {
       observer.disconnect();
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("jump-section", handleJump);
+      window.removeEventListener("nav-link-clicked", handleNavJump);
     };
+    
   }, [activeId]);
 }

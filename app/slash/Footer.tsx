@@ -1,10 +1,17 @@
+"use client";
 import Image from "next/image"
 import Link from "next/link";
 import slashLogo from "@/public/images/slash-logo-orange.svg";
 import { FaInstagram } from "react-icons/fa";
 import { PiArrowUpLight } from "react-icons/pi";
+import { handleNavLinks } from "../lib/utils/handleNavLinks";
 
 export default function Footer() {
+  // Allow nav links to ignore page lock caused by useSectionLock hook
+  const handleLinkClick = () => {
+    handleNavLinks();
+  };
+
   return(
     <footer>
       <div className="footer-wrapper">
@@ -33,6 +40,7 @@ export default function Footer() {
           <Link 
             href="#" 
             className="jump-top-arrow-container"
+            onClick={handleLinkClick}
             >
             <PiArrowUpLight className="footer-jump-top-arrow"/>
           </Link>
