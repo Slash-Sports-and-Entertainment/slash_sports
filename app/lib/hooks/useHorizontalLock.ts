@@ -48,7 +48,7 @@ export function useHorizontalLock(): HorizontalScrollReturn {
 
     let touchStartY = 0;
 
-    const handleGesture = (deltaY: number, event: WheelEvent | TouchEvent) => {
+    const handleGesture = (deltaY: number, event: WheelEvent | TouchEvent | KeyboardEvent) => {
       const now = Date.now();
       const rect = trigger.getBoundingClientRect();
       const maxScroll = slider.scrollWidth - slider.clientWidth;
@@ -257,16 +257,31 @@ export function useHorizontalLock(): HorizontalScrollReturn {
       }
     };
 
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!isSectionVisible) return;
+      let simulatedDeltaY = 0;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") simulatedDeltaY = 100;
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") simulatedDeltaY = -100;
+      else if (e.key === " ") simulatedDeltaY = 100;
+
+      if (simulatedDeltaY !== 0) {
+        if (handleGesture(simulatedDeltaY, e)) e.preventDefault();
+      }
+    };
+
+
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("keydown", onKeyDown);
     };
-  }, []);
+  }, [isSectionVisible]);
 
   return { slideContainerRef, triggerRef, progress, isSectionVisible}
 }
