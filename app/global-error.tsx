@@ -13,12 +13,16 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   }, [error]);
 
   return(
-    <html>
+    <html lang="en">
+      <head>
+        <title>Something went wrong | SLASH</title>
+      </head>
       <body>
-        <section id="global-error-page">
-          <div 
+        <main id="global-error-page">
+          <section 
             id="global-error-wrapper" 
             className="wrapper"
+            aria-live="assertive"
           >
             <h1>Sorry, something went wrong...</h1>
             <p>
@@ -27,11 +31,12 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             <button 
               className="gloabl-error-btn"
               onClick={() => reset()}
+              aria-label="Attempt to recover and reload the page"
             >
               Reset
             </button>
-          </div>
-        </section>
+          </section>
+        </main>
       </body>
     </html>
   )
