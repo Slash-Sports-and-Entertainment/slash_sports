@@ -18,12 +18,14 @@ export default function TestimonialsCards(): JSX.Element {
         id={`testimonial-card-${testimonial.id}`} 
         className="testimonial-card" 
         key={index}
+        aria-roledescription="slide"
+        role="group"
       >
-        <div className="quote-container">
+        <blockquote className="quote-container">
           <BreakParagraphs>
             {testimonial.quote}
           </BreakParagraphs>
-        </div>
+        </blockquote>
         <div className="cite-tags">
           <div className="cite-image-container">
             <Image 
@@ -34,9 +36,9 @@ export default function TestimonialsCards(): JSX.Element {
               className="cite-image"
             />
           </div>
-          <div className="in-text-citation">
+          <h3 className="in-text-citation">
             {testimonial.firstName} {testimonial.lastName}
-          </div>
+          </h3>
         </div>
       </article>
     )
@@ -102,29 +104,44 @@ export default function TestimonialsCards(): JSX.Element {
   }
 
   return(
-    <div id="testimonials-cards-container">
-      {testCards[currentCardIndex]}
+    <div 
+      id="testimonials-cards-container"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Professional athletes testimonials"
+    >
+      <div 
+        className="active-testimonial-zone" 
+        aria-live="polite" 
+        aria-atomic="true"
+      >
+        {testCards[currentCardIndex]}
+      </div>
       <div id="card-btn-container">
         <button 
           id="previous-card" 
           className="card-btn"
           onClick={handleCardBtns}
+          aria-label="Previous testimonial"
         >
           Prev
         </button>
         <button 
           id="control-timer"
+          className="card-btn"
           onClick={handleCardBtns}
+          aria-label={isPaused ? "Play testimonial slideshow" : "Pause testimonial slideshow"}
         >
           {isPaused ? 
-            <FaPlay /> : 
-            <FaPause />
+            <FaPlay aria-hidden="true"/> : 
+            <FaPause aria-hidden="true"  />
           }
         </button>
         <button 
           id="next-card" 
           className="card-btn"
           onClick={handleCardBtns}
+          aria-label="Next testimonial"
         >
           Next
         </button>

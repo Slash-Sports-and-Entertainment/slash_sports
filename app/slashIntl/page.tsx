@@ -16,23 +16,24 @@ export default function SlashIntlHome() {
   
   return(
     <main id="slashIntl-container">
-      <section id="hero-slashIntl">
+      <section id="hero-slashIntl" aria-label="Introduction">
         <div id="slashIntl-wrapper" className="wrapper">
-          <p className="headline">
+          <h1 className="headline">
             WHERE ELITE TALENT<br/>
             MEETS THE GLOBAL GAME.
-          </p>
+          </h1>
           <div className="headline-image-container">
             <Image 
               src={sLogoWhite}
-              alt="SLASH S logo"
+              alt=""
               className="headline-image"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
           </div>
           <div className="scroll-icon-container">
-            <PiArrowDownLight className="scroll-down-icon"/>
+            <PiArrowDownLight className="scroll-down-icon" aria-hidden="true"/>
           </div>
         </div>
       </section>

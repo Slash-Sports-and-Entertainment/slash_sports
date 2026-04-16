@@ -13,7 +13,8 @@ export default function Footer() {
   };
 
   return(
-    <footer>
+    <footer role="contentinfo" aria-label="Page Footer">
+      <h2 className="sr-only">Footer</h2>
       <div className="footer-wrapper">
         <Link 
           href="/" 
@@ -22,7 +23,7 @@ export default function Footer() {
         >
           <Image
             src={slashLogo}
-            alt="SLASH company logo"
+            alt=""
             className="logo-img"
             fill
             loading="eager"
@@ -34,15 +35,17 @@ export default function Footer() {
             href="https://www.instagram.com/slashsportsent/" 
             target="_blank" 
             rel="noopener noreferrer"
-            >
-            <FaInstagram className="insta-icon"/>
+            aria-label="Follow SLASH on Instagram" 
+          >
+            <FaInstagram className="insta-icon" aria-hidden="true"/>
           </Link>
           <Link 
             href="#" 
             className="jump-top-arrow-container"
             onClick={handleLinkClick}
-            >
-            <PiArrowUpLight className="footer-jump-top-arrow"/>
+            aria-label="Jump to top of page" 
+          >
+            <PiArrowUpLight className="footer-jump-top-arrow" aria-hidden="true"/>
           </Link>
         </div>
       </div>

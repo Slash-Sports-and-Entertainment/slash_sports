@@ -3,11 +3,11 @@ import TestimonialGrid from "@/app/slashIntl/components/Testimonials/Testimonial
 
 export default function Testimonials() {
   return(
-    <section id="testimonials">
+    <section id="testimonials" aria-labelledby="testimonials-title">
       <div id="testimonials-wrapper" className="wrapper">
-        <h1>
+        <h2 id="testimonials-title">
           TESTIMONIALS
-        </h1>
+        </h2>
         <div className="testimonials-container">
           <TestimonialsCards />
           <TestimonialGrid />

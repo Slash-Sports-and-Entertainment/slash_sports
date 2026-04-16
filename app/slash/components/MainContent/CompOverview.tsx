@@ -1,38 +1,54 @@
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import type { JSX } from "react";
 import Image from "next/image";
 import dennis from "@/public/images/dennis.webp"
 
 export default function CompOverview(): JSX.Element {
   const cardFlipRef = useRef<HTMLDivElement>(null);
+  const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleCardFlip = () => {
+  const handleCardFlip = (e: React.MouseEvent<HTMLButtonElement>) => {
     if(cardFlipRef.current) {
-      cardFlipRef.current.classList.toggle("flip");
+      const flip = cardFlipRef.current.classList.toggle("flip");
+      setIsFlipped(flip);
     }
   }
 
   return(
-    <section id="who-we-are">
+    <section id="who-we-are" aria-labelledby="overview-title">
       <div id="overview-wrapper" className="wrapper">
-        <h1>
+        <h2 id="overview-title">
           <span className="outline-text">
             WHO
           </span> WE ARE
-        </h1>
-        <div className="overview-card-container">
-          <div id="overview-card" ref={cardFlipRef}>
+        </h2>
+        <div id="overview-card-container" className="card-container">
+          <div 
+            id="overview-card" 
+            className="card" 
+            ref={cardFlipRef}
+            aria-live="polite"
+          >
 
-            <div id="overview-img-container" className="front">
+            <div 
+              id="overview-img-container" 
+              className="front"
+              aria-hidden={isFlipped}
+            >
               <Image 
                 src={dennis}
-                alt="image of slash client Dennis Evans"
+                alt="SLASH client Dennis Evans"
                 id="overview-img"
                 fill
-                />
-            </div>
+              />
+            </div> 
 
-            <div className="paragraph-container back">
+            <div 
+              className="paragraph-container back"
+              aria-hidden={!isFlipped}
+              role="region"
+              aria-label="About SLASH Sports and Entertainment"
+            >
               <p className="style-paragraphs">
                 We believe development is the highest 
                 form of representation.
@@ -61,8 +77,11 @@ export default function CompOverview(): JSX.Element {
           id="card-flip-btn" 
           className="button"
           onClick={handleCardFlip}
+          aria-controls="overview-card"
+          aria-expanded={isFlipped}
+          aria-label="Flip card to read more about us"
         >
-          More about us
+            {isFlipped ? "Show Photo" : "More about us"}
         </button>
       </div>
     </section>

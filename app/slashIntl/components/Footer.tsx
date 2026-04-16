@@ -4,10 +4,17 @@ import Link from "next/link";
 import slashLogo from "@/public/images/slash-logo-orange.svg";
 import { FaInstagram } from "react-icons/fa";
 import { PiArrowUpLight } from "react-icons/pi";
+import { handleNavLinks } from "@/app/lib/utils/handleNavLinks";
 
 export default function Footer() {
+  // Allow nav links to ignore page lock caused by useSectionLock hook
+  const handleLinkClick = () => {
+    handleNavLinks();
+  };
+
   return(
-    <footer id="slash-footer">
+    <footer id="slash-footer" role="contentinfo" aria-label="Page Footer">
+      <h2 className="sr-only">Footer</h2>
       <div className="footer-wrapper">
         <Link 
           href="/" 
@@ -28,14 +35,17 @@ export default function Footer() {
             href="https://www.instagram.com/slashsportsent/" 
             target="_blank" 
             rel="noopener noreferrer"
-            >
-            <FaInstagram className="insta-icon"/>
+            aria-label="Follow SLASH on Instagram"
+          >
+            <FaInstagram className="insta-icon" aria-hidden="true"/>
           </Link>
           <Link 
             href="/slashIntl" 
             className="jump-top-arrow-container"
-            >
-            <PiArrowUpLight className="footer-jump-top-arrow"/>
+            onClick={handleLinkClick}
+            aria-label="Jump to top of page"
+          >
+            <PiArrowUpLight className="footer-jump-top-arrow" aria-hidden="true"/>
           </Link>
         </div>
       </div>

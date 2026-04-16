@@ -261,7 +261,7 @@ section {
   scroll-snap-stop: always;
 }
 
-h1 {
+h2 {
   font-size: 2.25rem;
   margin-bottom: 1.1em;
   font-weight: 700;
@@ -313,7 +313,7 @@ img {
     padding: 4em;
   }
 
-  h1 {
+  h2 {
     font-size: 3.25rem;
     margin: 0;
     margin-bottom: 1.1em;

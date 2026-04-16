@@ -31,6 +31,11 @@
   object-position: top;
 }
 
+#about-us p:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 8px;
+  border-radius: 4px;
+}
 
 /*********
   TESTIMONIALS
@@ -128,6 +133,12 @@
   cursor: pointer;
 }
 
+.card-btn:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
 @media screen and (orientation: landscape) and (max-height: 540px) {
   #testimonials-cards-container {
    justify-content: flex-start;
@@ -203,6 +214,8 @@
   border-radius: 4px;
   padding: 5em 1em 1em;
   position: relative;
+  animation: modal-fade-in 0.4s ease-out;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -217,6 +230,11 @@ button.cancel-select-testimonial {
   right: 1em;
   height: 30px;
   aspect-ratio: 1 / 1;
+}
+
+button.cancel-select-testimonial:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 2px;
 }
 
 .cancel-select-image {
@@ -314,6 +332,11 @@ button.cancel-select-testimonial {
     height: 150px;
     border-radius: 4px;
     opacity: .75;
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+    transition: all 0.3s ease;
   }
 
   .selected-image {
@@ -322,11 +345,12 @@ button.cancel-select-testimonial {
   }
 
   .testimonial-grid-image-container:hover,
-  .testimonial-grid-image-container:focus {
+  .testimonial-grid-image-container:focus-visible {
     cursor: pointer;
     border: 4px solid #f88303;
     border-radius: 4px;
     opacity: 1;
+    outline: none;
   }
   
   .testimonial-grid-image {

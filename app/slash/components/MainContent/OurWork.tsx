@@ -16,7 +16,7 @@ export default function OurWork(): JSX.Element {
   } = useHorizontalLock();
 
   return(
-    <section id="our-work">
+    <section id="our-work" aria-labelledby="our-work-title">
       <div 
         id="our-work-wrapper" 
         className="wrapper"
@@ -26,15 +26,19 @@ export default function OurWork(): JSX.Element {
         <div 
           className="our-work-scroll-container" 
           ref={slideContainerRef}
+          role="region"
+          aria-label={`Information slider about their services and accomplishments. 
+          Use arrow keys or spacebar to navigate.`}
+          tabIndex={0}
         >
   
-          <h1>
+          <h2 id="our-work-title">
             <span className="outline-text">
               OUR
             </span> WORK
-          </h1>
+          </h2>
           
-          <div id="our-work-paragraphs-1" className="our-work-paragraphs">
+          <article id="our-work-paragraphs-1" className="our-work-paragraphs">
             <p className="style-paragraphs">
               SLASH provides full-service representation to 
               NBA & WNBA players, NIL representation to 
@@ -50,16 +54,16 @@ export default function OurWork(): JSX.Element {
             <div className="ourWork-img-container">
               <Image 
                 src={tehina}
-                alt="photo of something related to our work" 
+                alt="Te-Hina Paopao celebrating on court"
                 className="ourWork-img"
                 id="ourWork-img-1"
                 fill
                 placeholder="blur"
               />
             </div>
-          </div>
+          </article>
 
-          <div id="our-work-paragraphs-2" className="our-work-paragraphs">
+          <article id="our-work-paragraphs-2" className="our-work-paragraphs">
             <p className="style-paragraphs">
               At the negotiation table, SLASH continually 
               delivers results. SLASH&apos;s team has been a 
@@ -70,16 +74,16 @@ export default function OurWork(): JSX.Element {
             <div className="ourWork-img-container">
               <Image 
                 src={jamaal}
-                alt="photo of something related to our work" 
+                alt="Jamaal Franklin shooting a jumpshot" 
                 className="ourWork-img"
                 id="ourWork-img-2"
                 fill
                 placeholder="blur"
               />
             </div>
-          </div>
+          </article>
 
-          <div id="our-work-paragraphs-3" className="our-work-paragraphs">
+          <article id="our-work-paragraphs-3" className="our-work-paragraphs">
             <p className="style-paragraphs">
               At large, we teach, mentor, protect, and 
               support players so they possess the 
@@ -91,18 +95,23 @@ export default function OurWork(): JSX.Element {
             <div className="ourWork-img-container">
               <Image 
                 src={josh}
-                alt="photo of something related to our work" 
+                alt="Josh Irving in Texas A&M uniform on media day"
                 className="ourWork-img"
                 id="ourWork-img-3"
                 fill
                 placeholder="blur"
               />
             </div>
-          </div>
+          </article>
         </div>
 
         <div 
           className="progress-container"
+          role="progressbar"
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Slide progress"
           style={{ 
             opacity: isSectionVisible && progress >= 5 && progress < 99 ? 1 : 0, 
             pointerEvents: 'none',
@@ -118,7 +127,7 @@ export default function OurWork(): JSX.Element {
           </div>
         </div>
 
-        <div className="scroll-indicator">
+        <div className="scroll-indicator" aria-hidden="true">
           <PiArrowDownLight className="scroll-indicator-icon"/>
         </div>
       </div>

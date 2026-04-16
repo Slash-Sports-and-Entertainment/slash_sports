@@ -11,6 +11,7 @@ import { handleNavLinks } from "@/app/lib/utils/handleNavLinks";
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   // Nav drop down/slideout
   function dropDown(e: MouseEvent) {
@@ -20,9 +21,29 @@ export default function Header() {
       setIsNavOpen(true);
     } else if(e.currentTarget.id === "slash-navDrop-cancel") {
       setIsNavOpen(false);
+      hamburgerRef.current?.focus();
     }
   }
   
+  // Escape click on open nav drop down closes drop down
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if(e.key === "Escape" && isNavOpen) {
+        setIsNavOpen(false);
+        hamburgerRef.current?.focus();
+      }
+    };
+
+    if(isNavOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    }
+  }, [isNavOpen]);
+
+
   // Click outside of nav dropdown to close it
   useEffect(() => {
     const handleClickOutside = (e: PointerEvent) => {
@@ -57,7 +78,7 @@ export default function Header() {
       >
         <Image
           src={wordLogo}
-          alt="SLASH company logo"
+          alt=""
           className="logo-img"
           fill
           loading="eager"
@@ -69,27 +90,40 @@ export default function Header() {
           href={"https://www.instagram.com/slashsportsent/"} 
           target="_blank" 
           rel="noopener noreferrer"
+          aria-label="Follow SLASH on Instagram" 
         >
-          <FaInstagram className="insta-icon"/>
+          <FaInstagram className="insta-icon" aria-hidden="true"/>
         </Link>
-        <ul id="hamburger-icon" onClick={dropDown}>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+        <button
+          ref={hamburgerRef} 
+          id="hamburger-icon" 
+          onClick={dropDown}
+          aria-expanded={isNavOpen}
+          aria-controls="nav-dropdown-menu"
+          aria-label="Open navigation menu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
         <div 
+          id="nav-dropdown-menu"
           ref={dropDownRef}
           className={`nav-dropdown ${isNavOpen ? "isActive" : "isHidden"}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation Menu"
         >
           <div className="dropdown-btn-container">
             <button 
               id="slash-navDrop-cancel" 
               onClick={dropDown}
+              aria-label="Close navigation menu"
             >
               <Image 
                 src={cancelIcon}
-                alt="cancel dropdown menu"
+                alt=""
                 width={20}
                 height={20}
                 className="cancel-btn"
@@ -98,26 +132,35 @@ export default function Header() {
           </div>
 
           <ul className="header-nav">
-            <Link href="/" onClick={handleLinkClick}>
-              <li className="header-links">Home</li>
-            </Link>
-            <Link href="#about-us" onClick={handleLinkClick}>
-              <li className="header-links">About Us</li>
-            </Link>
-            <Link href="#testimonials" onClick={handleLinkClick}>
-              <li className="header-links">Testimonials</li>
-            </Link>
-            <Link href="#meet-intl-team" onClick={handleLinkClick}>
-              <li className="header-links">Team</li>
-            </Link>
+            <li className="header-links">
+              <Link href="/" onClick={handleLinkClick}>
+                Home
+              </Link>
+            </li>
+            <li className="header-links">
+              <Link href="#about-us" onClick={handleLinkClick}>
+                About Us
+              </Link>
+            </li>
+            <li className="header-links">
+              <Link href="#testimonials" onClick={handleLinkClick}>
+                Testimonials
+              </Link>
+            </li>
+            <li className="header-links">
+              <Link href="#meet-intl-team" onClick={handleLinkClick}>
+                Team
+              </Link>
+            </li>
           </ul>
           <Link 
             className="nav-socials" 
             href="https://www.instagram.com/slashsportsent/" 
             target="_blank" 
             rel="noopener noreferrer"
+            aria-label="Follow SLASH on Instagram"
           >
-            <FaInstagram className="insta-icon"/>
+            <FaInstagram className="insta-icon" aria-hidden="true"/>
           </Link>
         </div>
       </nav>

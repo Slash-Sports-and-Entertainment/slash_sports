@@ -32,14 +32,14 @@ import celsius from "@/public/images/celsius-logo.svg";
 
 export default function WorkedWith(): JSX.Element {
   return(
-    <section id="worked-with">
+    <section id="worked-with" aria-labelledby="worked-with-title">
       <div id="worked-with-wrapper" className="wrapper">
         <div className="worked-with-content-container">
-          <h1>
+          <h2 id="worked-with-title">
             <span className="outline-text">
               WHO 
             </span> WE&apos;VE WORKED WITH
-          </h1>
+          </h2>
           <p className="style-paragraphs">
             SLASH has secured brand partnerships with 
             companies across several industries and 
@@ -50,69 +50,74 @@ export default function WorkedWith(): JSX.Element {
             tech companies.
           </p>
         </div>
-        <div id="logo-slider-container">
+        <div 
+          id="logo-slider-container"
+          role="region"
+          aria-label="carousel of brands SLASH has worked with"
+          tabIndex={0}
+        >
           <div className="brand-slideshow">
-              <div className="logo-slider">
-                <Image src={nikeIcon} alt="Nike logo" className="brand-icons" height={50} width={120}/>
-                <Image src={footlocker} alt="Foot Locker logo" className="brand-icons" height={50} width={120}/>
-                <Image src={columbiaPics} alt="Columbia Pictures logo" className="brand-icons" height={50} width={120}/>
-                <Image src={appleIcon} alt="Apple logo" className="brand-icons" height={50} width={120}/>
-                <Image src={spotifyIcon} alt="Spotify logo" className="brand-icons" height={50} width={120}/>
-                <Image src={adidasIcon} alt="Adidas logo" className="brand-icons" height={50} width={120}/>
-                <Image src={audiIcon} alt="Audi logo" className="brand-icons" height={50} width={120}/>
-                <Image src={kotex} alt="U by Kotex logo" className="brand-icons" height={50} width={120}/>
-                <Image src={bReport} alt="Bleacher Report logo" className="brand-icons" height={50} width={120}/>
-                <Image src={jimmyJ} alt="Jimmy Johns logo" className="brand-icons" height={50} width={120}/>
-                <Image src={pTribune} alt="Players Tribune logo" className="brand-icons" height={50} width={120}/>
-                <Image src={celsius} alt="Celsius logo" className="brand-icons" height={50} width={120} />
-                <Image src={schmidts} alt="Schmidts logo" className="brand-icons" height={50} width={120}/>
+              <div className="logo-slider" role="list">
+                <Image role="listitem" src={nikeIcon} alt="Nike" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={footlocker} alt="Foot Locker" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={columbiaPics} alt="Columbia Pictures" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={appleIcon} alt="Apple" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={spotifyIcon} alt="Spotify" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={adidasIcon} alt="Adidas" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={audiIcon} alt="Audi" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={kotex} alt="U by Kotex" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={bReport} alt="Bleacher Report" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={jimmyJ} alt="Jimmy Johns" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={pTribune} alt="Players Tribune" className="brand-icons" height={50} width={120}/>
+                <Image role="listitem" src={celsius} alt="Celsius" className="brand-icons" height={50} width={120} />
+                <Image role="listitem" src={schmidts} alt="Schmidts" className="brand-icons" height={50} width={120}/>
               </div>
-              <div className="logo-slider">
-                <Image src={nikeIcon} alt="Nike logo" className="brand-icons" height={50} width={120}/>
-                <Image src={footlocker} alt="Foot Locker logo" className="brand-icons" height={50} width={120}/>
-                <Image src={columbiaPics} alt="Columbia Pictures logo" className="brand-icons" height={50} width={120}/>
-                <Image src={appleIcon} alt="Apple logo" className="brand-icons" height={50} width={120}/>
-                <Image src={spotifyIcon} alt="Spotify logo" className="brand-icons" height={50} width={120}/>
-                <Image src={adidasIcon} alt="Adidas logo" className="brand-icons" height={50} width={120}/>
-                <Image src={audiIcon} alt="Audi logo" className="brand-icons" height={50} width={120}/>
-                <Image src={kotex} alt="U by Kotex logo" className="brand-icons" height={50} width={120}/>
-                <Image src={bReport} alt="Bleacher Report logo" className="brand-icons" height={50} width={120}/>
-                <Image src={jimmyJ} alt="Jimmy Johns logo" className="brand-icons" height={50} width={120}/>
-                <Image src={pTribune} alt="Players Tribune logo" className="brand-icons" height={50} width={120}/>
-                <Image src={celsius} alt="Celsius logo" className="brand-icons" height={50} width={120} />
-                <Image src={schmidts} alt="Schmidts logo" className="brand-icons" height={50} width={120}/>
+              <div className="logo-slider" aria-hidden="true">
+                <Image src={nikeIcon} alt="Nike" className="brand-icons" height={50} width={120}/>
+                <Image src={footlocker} alt="Foot Locker" className="brand-icons" height={50} width={120}/>
+                <Image src={columbiaPics} alt="Columbia Pictures" className="brand-icons" height={50} width={120}/>
+                <Image src={appleIcon} alt="Apple" className="brand-icons" height={50} width={120}/>
+                <Image src={spotifyIcon} alt="Spotify" className="brand-icons" height={50} width={120}/>
+                <Image src={adidasIcon} alt="Adidas" className="brand-icons" height={50} width={120}/>
+                <Image src={audiIcon} alt="Audi" className="brand-icons" height={50} width={120}/>
+                <Image src={kotex} alt="U by Kotex" className="brand-icons" height={50} width={120}/>
+                <Image src={bReport} alt="Bleacher Report" className="brand-icons" height={50} width={120}/>
+                <Image src={jimmyJ} alt="Jimmy Johns" className="brand-icons" height={50} width={120}/>
+                <Image src={pTribune} alt="Players Tribune" className="brand-icons" height={50} width={120}/>
+                <Image src={celsius} alt="Celsius" className="brand-icons" height={50} width={120} />
+                <Image src={schmidts} alt="Schmidts" className="brand-icons" height={50} width={120}/>
               </div>
           </div>
           <div className="brand-slideshow">
-            <div className="logo-slider-two">
-              <Image src={tmobile} alt="T-Mobile logo" className="brand-icons" height={50} width={120}/>
-              <Image src={mcdonalds} alt="McDonalds logo" className="brand-icons" height={50} width={120}/>
-              <Image src={fanatics} alt="Fanatics logo" className="brand-icons" height={50} width={120} />
-              <Image src={puma} alt="Puma logo" className="brand-icons" height={50} width={120}/>
-              <Image src={hearst} alt="Hearst Magazine logo" className="brand-icons" height={50} width={120} />
-              <Image src={oxo} alt="OXO logo" className="brand-icons" height={50} width={120}/>
-              <Image src={jordan} alt="Jordan logo" className="brand-icons" height={50} width={120}/>
-              <Image src={panini} alt="Panini logo" className="brand-icons" height={50} width={120}/>
-              <Image src={uninterrupted} alt="Uninterrupted logo" className="brand-icons" height={50} width={120} />
-              <Image src={uber} alt="Uber logo" className="brand-icons" height={50} width={120}/>
-              <Image src={facebook} alt="Facebook logo" className="brand-icons" height={50} width={120}/>
-              <Image src={cottonOn} alt="Cotton On logo" className="brand-icons" height={50} width={120} />
-              <Image src={newBalance} alt="New Balance logo" className="brand-icons" height={50} width={120}/>
+            <div className="logo-slider-two" role="list">
+              <Image role="listitem" src={tmobile} alt="T-Mobile" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={mcdonalds} alt="McDonalds" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={fanatics} alt="Fanatics" className="brand-icons" height={50} width={120} />
+              <Image role="listitem" src={puma} alt="Puma" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={hearst} alt="Hearst Magazine" className="brand-icons" height={50} width={120} />
+              <Image role="listitem" src={oxo} alt="OXO" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={jordan} alt="Jordan" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={panini} alt="Panini" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={uninterrupted} alt="Uninterrupted" className="brand-icons" height={50} width={120} />
+              <Image role="listitem" src={uber} alt="Uber" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={facebook} alt="Facebook" className="brand-icons" height={50} width={120}/>
+              <Image role="listitem" src={cottonOn} alt="Cotton On" className="brand-icons" height={50} width={120} />
+              <Image role="listitem" src={newBalance} alt="New Balance" className="brand-icons" height={50} width={120}/>
             </div>
-            <div className="logo-slider-two">
-              <Image src={tmobile} alt="T-Mobile logo" className="brand-icons" height={50} width={120}/>
-              <Image src={mcdonalds} alt="McDonalds logo" className="brand-icons" height={50} width={120}/>
-              <Image src={fanatics} alt="Fanatics logo" className="brand-icons" height={50} width={120}/>
-              <Image src={puma} alt="Puma logo" className="brand-icons" height={50} width={120}/>
-              <Image src={hearst} alt="Hearst Magazine logo" className="brand-icons" height={50} width={120}/>
-              <Image src={oxo} alt="OXO logo" className="brand-icons" height={50} width={120}/>
-              <Image src={jordan} alt="Jordan logo" className="brand-icons" height={50} width={120}/>
-              <Image src={panini} alt="Panini logo" className="brand-icons" height={50} width={120}/>
-              <Image src={uninterrupted} alt="Uninterrupted logo" className="brand-icons" height={50} width={120}/>
-              <Image src={uber} alt="Uber logo" className="brand-icons" height={50} width={120}/>
-              <Image src={facebook} alt="Facebook logo" className="brand-icons" height={50} width={120}/>
-              <Image src={cottonOn} alt="Cotton On logo" className="brand-icons" height={50} width={120}/>
-              <Image src={newBalance} alt="New Balance logo" className="brand-icons" height={50} width={120}/>
+            <div className="logo-slider-two" aria-hidden="true">
+              <Image src={tmobile} alt="T-Mobile" className="brand-icons" height={50} width={120}/>
+              <Image src={mcdonalds} alt="McDonalds" className="brand-icons" height={50} width={120}/>
+              <Image src={fanatics} alt="Fanatics" className="brand-icons" height={50} width={120}/>
+              <Image src={puma} alt="Puma" className="brand-icons" height={50} width={120}/>
+              <Image src={hearst} alt="Hearst Magazine" className="brand-icons" height={50} width={120}/>
+              <Image src={oxo} alt="OXO" className="brand-icons" height={50} width={120}/>
+              <Image src={jordan} alt="Jordan" className="brand-icons" height={50} width={120}/>
+              <Image src={panini} alt="Panini" className="brand-icons" height={50} width={120}/>
+              <Image src={uninterrupted} alt="Uninterrupted" className="brand-icons" height={50} width={120}/>
+              <Image src={uber} alt="Uber" className="brand-icons" height={50} width={120}/>
+              <Image src={facebook} alt="Facebook" className="brand-icons" height={50} width={120}/>
+              <Image src={cottonOn} alt="Cotton On" className="brand-icons" height={50} width={120}/>
+              <Image src={newBalance} alt="New Balance" className="brand-icons" height={50} width={120}/>
             </div>
           </div>
         </div>

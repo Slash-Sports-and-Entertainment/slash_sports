@@ -5,19 +5,20 @@ import { TeamCards } from "@/app/lib/components/TeamCards";
 
 export default function MeetIntlTeam(): JSX.Element {
   return(
-    <section id="meet-intl-team">
+    <section id="meet-intl-team" aria-labelledby="meet-intl-team-title">
       <div id="meet-intl-team-wrapper" className="wrapper">
-        <h1>
+        <h2 id="meet-intl-team-title">
           <span className="outline-text">
             OUR
           </span> TEAM
-        </h1>
-        <div id="intlTeam-cards-container">
+        </h2>
+        <div id="intlTeam-cards-container" role="list">
           {internationalTeamData.map((person) => {
             return(
               <article 
                 className="team-cards" 
                 key={person.id}
+                role="listitem"
               >
                 <TeamCards person={person} />
               </article>

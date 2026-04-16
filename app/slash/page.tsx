@@ -19,12 +19,12 @@ export default function SlashHome() {
   
   return(
     <main id="slash-container">
-      <section id="hero-slash">
+      <section id="hero-slash" aria-label="introduction">
         <div id="slash-wrapper" className="wrapper">
-          <p className="headline">
+          <h1 className="headline">
             Where Athletes are<br/>
             Built, Polished, and Unleashed.
-          </p>
+          </h1>
           <div className="headline-image-container">
             <Image 
               src={sLogoWhite}
@@ -34,7 +34,7 @@ export default function SlashHome() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
-          <div className="scroll-icon-container">
+          <div className="scroll-icon-container" aria-hidden="true">
             <PiArrowDownLight className="scroll-down-icon"/>
           </div>
         </div>

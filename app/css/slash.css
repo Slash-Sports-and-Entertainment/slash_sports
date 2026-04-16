@@ -93,7 +93,7 @@ header {
   width: 2em;
 }
 
-#hamburger-icon li {
+#hamburger-icon span {
   background-color: #f1f1f1;
   list-style: none;
   margin: .125em;
@@ -106,11 +106,11 @@ header {
     height: 90px;
   }
 
-  #hamburger-icon li {
+  #hamburger-icon span {
     width: 2.5em;
   }
 
-  #hamburger-icon li {
+  #hamburger-icon span {
     margin: .25em;
     height: 1px;
   }
@@ -159,6 +159,11 @@ header {
   z-index: 3;
   text-align: center;
   text-transform: uppercase;
+  line-height: 1.675;
+  letter-spacing: .0875em;
+  max-width: 400px;
+  text-shadow: 0px 0px 20px black;
+  margin-bottom: 1.5em;
 }
 
 .headline-image-container {
@@ -272,12 +277,15 @@ nav {
   margin-top: 1em;
 }
 
-.header-nav a {
+.header-nav li {
   font-size: 2rem;
   margin-bottom: 1em;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.header-nav a:hover {
+.header-nav li:hover {
   border-right: 6px solid rgba(0, 0, 0, .75);
   padding-right: .5em;
 }
@@ -295,12 +303,6 @@ nav {
     font-size: 1.125rem;
     margin-bottom: .75em;
   }
-}
-
-.header-nav a li {
-  text-align: right;
-  text-transform: uppercase;
-  font-weight: 600;
 }
 
 .insta-icon {
@@ -334,7 +336,7 @@ nav {
     margin-top: 2em;
   }
 
-  .header-nav a {
+  .header-nav li {
     font-size: 2.5em;
     margin-bottom: .5em;
   }
@@ -367,14 +369,14 @@ nav {
   height: calc(100dvh - 8em);
 }
 
-.overview-card-container {
+#overview-card-container, .card-container {
   perspective: 1000px;
   overflow-y: scroll;
   height: 100%;
   width: 100%;
 }
 
-#overview-card {
+#overview-card, .card {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -382,7 +384,7 @@ nav {
   width: 100%;
 }
 
-#overview-card.flip {
+#overview-card.flip, .card.flip {
   transform: rotateY(180deg);
 }
 
@@ -392,7 +394,6 @@ nav {
   width: 100%;
   top: 0;
   left: 0;
-  /* z-index: -1; */
   border-radius: 4px;
 }
 
@@ -418,10 +419,22 @@ nav {
 
 .front {
   transform: rotateY(0deg);
+  visibility: visible;
+  transition: visibility 0.6s;
 }
 
 .back {
   transform: rotateY(180deg);
+  visibility: hidden;
+  transition: visibility 0.6s;
+}
+
+.card.flip .front {
+  visibility: hidden;
+}
+
+.card.flip .back {
+  visibility: visible;
 }
 
 .button {
@@ -450,6 +463,10 @@ nav {
   transition: background-color 0.6s ease;
 }
 
+#card-flip-btn:focus-visible {
+  outline: 3px solid #f88303;
+  outline-offset: 4px;
+}
 
 @media screen and (min-width: 680px) {
   #overview-img-container {
@@ -494,7 +511,7 @@ nav {
   position: relative;
 }
 
-.our-work-scroll-container > h1 {
+.our-work-scroll-container > h2 {
   position: sticky;
   top: 0;
   left: 0;
@@ -516,6 +533,11 @@ nav {
   overscroll-behavior-x: contain; 
   -webkit-overflow-scrolling: auto;
   border-radius: 4px;
+}
+
+.our-work-scroll-container:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 4px;
 }
 
 @media (pointer: coarse) {
@@ -850,6 +872,25 @@ nav {
   margin-left: 2rem;
 }
 
+#logo-slider-container:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-slider, 
+  .logo-slider-two {
+    animation: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Hide the duplicate loop entirely in reduced motion */
+  div[aria-hidden="true"] {
+    display: none !important;
+  }
+}
 
 @media screen and (min-width: 680px) {
   #worked-with p {
@@ -865,7 +906,6 @@ nav {
     width: 40%;
     margin: 0 1.25em;
   }
-
 }
 
 
@@ -906,6 +946,11 @@ nav {
   text-shadow: 0 0 40px white;
 }
 
+#nil .style-paragraphs:focus-visible {
+  outline: 2px solid #f88303;
+  outline-offset: 8px;
+  border-radius: 4px;
+}
 
 @media screen and (min-width: 680px) {
   #nil p {
@@ -966,7 +1011,7 @@ nav {
   border-radius: 4px;
 }
 
-.person-name {
+h3.person-name {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
@@ -1070,7 +1115,7 @@ nav {
     max-width: 700px;
   }
 
-  .person-name {
+  h3.person-name {
     font-size: 2rem;
   }
 

@@ -9,6 +9,13 @@ export default function NIL(): JSX.Element {
     const video = videoRef.current;
     if (!video) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if(prefersReducedMotion) {
+      video.pause();
+      return;
+    }
+
     // Explicitly set these to handle browser-specific quirks
     video.muted = true;
     video.playsInline = true;
@@ -33,12 +40,14 @@ export default function NIL(): JSX.Element {
     observer.observe(video);
 
     return () => {
-      if (video) observer.unobserve(video);
+      if (video) {
+        observer.unobserve(video);
+      } 
     };
   }, []);
 
   return(
-    <section id="nil">
+    <section id="nil" aria-labelledby="nil-title" tabIndex={0}>
       <div className="nil-vid-container">
         <video 
           width={600} 
@@ -49,15 +58,20 @@ export default function NIL(): JSX.Element {
           preload="auto"
           playsInline
           ref={videoRef}
+          aria-label="Video montage showing NIL athletes and highlights"
         >
           <source src="/videos/nil-video.mp4" type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
+
+        <span className="sr-only">
+          Background video showing highlights of collegiate basketball players.
+        </span>
       </div>
       <div id="nil-wrapper" className="wrapper">
-        <h1>
+        <h2 id="nil-title">
           NIL
-        </h1>
+        </h2>
         <p className="style-paragraphs">
           SLASH represents a select group of elite 
           high school and college basketball players. 
