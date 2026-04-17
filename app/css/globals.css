@@ -284,6 +284,12 @@ p {
   margin-bottom: 1.5em;
 }
 
+.style-paragraphs {
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform;
+}
+
 .paragraphs-fade {
   animation: paragraphs-fade-in .5s ease-in 0s;
 }
