@@ -6,7 +6,7 @@ export const teamData = [
     title: "CEO/Founder",
     email: "hbgain@slashse.com",
     image: "/images/harrison-image.svg",
-    alt: "Headshot photo of Harrison Gaines",
+    alt: "Professional headshot of Harrison Gaines",
     bio: `
       Harrison Gaines is the CEO/Founder of SLASH Sports 
       & Entertainment and a California Attorney.//n//n
@@ -62,7 +62,7 @@ export const teamData = [
     title: "CMO & Managing Partner",
     email: "silasgaines@slashse.com",
     image: "/images/silas-image.svg",
-    alt: "Headshot photo of Silas Gaines",
+    alt: "Professional headshot of Silas Gaines",
     bio: `
       Silas Gaines oversees all off-the-court 
       business for SLASH; leading entrepreneurial 
@@ -106,7 +106,7 @@ export const internationalTeamData = [
     lastName: "Misuraca",
     title: "President/Founder",
     image: "/images/charles-misuraca-image.svg",
-    alt: "Headshot photo of Charles Misuraca",
+    alt: "Professional headshot of Charles Misuraca",
     email: "cmisuraca@slashse.com",
     bio: `
       Charles Misuraca, Esq. / MBA founded SLASH 
@@ -134,7 +134,7 @@ export const internationalTeamData = [
     lastName: "Aslan",
     title: "Managing Partner",
     image: "/images/bugra-aslan-image.svg",
-    alt: "Headshot photo of Burga Aslan",
+    alt: "Professional headshot of Burga Aslan",
     email: "bugraaslan@slashse.com",
     bio: null
   },
@@ -144,7 +144,7 @@ export const internationalTeamData = [
     lastName: "Blackburn",
     title: "Director of Operations",
     image: "/images/james-blackburn-image.svg",
-    alt: "Headshot photo of James Blackburn",
+    alt: "Professional headshot of James Blackburn",
     email: "",
     bio: null
   },
@@ -154,7 +154,17 @@ export const internationalTeamData = [
     lastName: "Evans",
     title: "Chief Legal Officer",
     image: "/images/jeremy-evans-image.svg",
-    alt: "Headshot photo of Jeremy Evans",
+    alt: "Professional headshot of Jeremy Evans",
+    email: "",
+    bio: null
+  },
+  {
+    id: "kim-green",
+    firstName: "Kim",
+    lastName: "Green",
+    title: "Client Success & Player Services",
+    image: "/images/kim-green.svg",
+    alt: "Professional headshot of Kim Green",
     email: "",
     bio: null
   }
