@@ -60,7 +60,7 @@ export default function NIL(): JSX.Element {
           ref={videoRef}
           aria-label="Video montage showing NIL athletes and highlights"
         >
-          <source src="/videos/nil-video.mp4" type="video/mp4"/>
+          <source src="/videos/nil-highlight.mp4" type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
 
