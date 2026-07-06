@@ -103,7 +103,7 @@ body.is-locked {
 
 #slash-site-link {
   left: 0;
-  background-image: url("/images/sims.webp");
+  background-image: url("/images/kawhi-champ.png");
   clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
 }
 
