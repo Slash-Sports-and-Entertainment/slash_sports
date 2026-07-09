@@ -167,5 +167,15 @@ export const internationalTeamData = [
     alt: "Professional headshot of Kim Green",
     email: "",
     bio: null
+  },
+  {
+    id: "noah-igarashi",
+    firstName: "Noah",
+    lastName: "Igarashi",
+    title: "Director of Asia Basketball Operations",
+    image: "/images/noah-igarashi-image.jpg",
+    alt: "Professional headshot of Noah Igarashi",
+    email: "",
+    bio: null
   }
 ]
