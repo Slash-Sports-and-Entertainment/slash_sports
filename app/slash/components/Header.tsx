@@ -141,23 +141,18 @@ export default function Header() {
               </Link>
             </li>
             <li className="header-links">
-              <Link href="#who-we-are" onClick={handleLinkClick}>
-                Who We Are
+              <Link href="/slash" onClick={handleLinkClick}>
+                Slash
               </Link>
             </li>
             <li className="header-links">
-              <Link href="#our-work" onClick={handleLinkClick}>
-                Our Work
+              <Link href="/slash/on-the-court" onClick={handleLinkClick}>
+                On Court
               </Link>
             </li>
             <li className="header-links">
-              <Link href="#worked-with" onClick={handleLinkClick}>
-                Worked With
-              </Link>
-            </li>
-            <li className="header-links">
-              <Link href="#nil" onClick={handleLinkClick}>
-                NIL
+              <Link href="/slash/off-the-court" onClick={handleLinkClick}>
+                Off Court
               </Link>
             </li>
             <li className="header-links">
