@@ -1,0 +1,400 @@
+/*********
+  ON THE COURT
+**********/
+#on-the-court, #off-the-court {
+  min-height: fit-content;
+  top: 6em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 14em;
+}
+
+#on-the-court-wrapper.wrapper, 
+#off-the-court-wrapper.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12dvh;
+  height: calc(100dvh - 12em);
+  min-height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  #on-the-court, #off-the-court {
+    top: 8em;
+    margin-bottom: 20em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #on-the-court-wrapper.wrapper, 
+  #off-the-court-wrapper.wrapper {
+    gap: 20dvh;
+  }
+}
+
+.on-the-court-paragraphs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: fit-content;
+  width: 100%;
+  gap: 2em;
+}
+
+.on-the-court-paragraphs > .style-paragraphs {
+  margin: 0;
+}
+
+.onTheCourt-img-container {
+  position: relative;
+  width: 100%;
+  height: 50dvh;
+}
+
+.onTheCourt-img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.scroll-indicator {
+  position: sticky;
+  top: calc(100dvh - 3em);
+  left: 3rem;
+}
+
+.scroll-indicator-icon {
+  position: relative;
+  left: -.5em;
+  height: 2em;
+  width: 2em;
+  color: rgba(248, 248, 250, .5);
+  animation: blinkingArrow 1.5s ease-in-out 0s infinite;
+}
+
+@media screen and (min-width: 1275px) {
+  .onTheCourt-img-container {
+    position: relative;
+    width: 60%;
+    height: 50dvh;
+  }
+}
+
+/*********
+  OFF THE COURT
+**********/
+
+/**** 
+EVENT PRODUCTION,
+BRAND MANAGEMENT,
+PHILANTHROPY, 
+GLOBAL PARTNERSHIPS
+****/
+#event-production,
+#brand-management,
+#philanthropy,
+#brand-partnerships,
+#global-partnerships {
+  width: 100%;
+}
+
+#event-production-title, 
+#brand-management-title,
+#philanthropy-title,
+#brand-partnerships-title,
+#global-partnerships-title {
+  margin-bottom: 1.25rem;
+}
+
+#event-production > .paragraphs,
+#brand-management > .paragraphs,
+#philanthropy > .paragraphs,
+#brand-partnerships > .paragraphs,
+#global-partnerships > .paragraphs {
+  margin-bottom: 4em;
+}
+
+#event-prod-img-container,
+#brand-management-img-container,
+#philanthropy-img-container {
+  position: relative;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#philanthropy-img-container {
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.event-prod-images,
+.brand-manage-images,
+.philanthropy-images {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.event-prod-images:hover,
+.brand-manage-images:hover,
+.philanthropy-images:hover {
+  border: 2px solid #f88303;
+  cursor: pointer;
+}
+
+#close-event-prod-image,
+#close-brand-manage-image,
+#close-philanthropy-image {
+  display: none;
+}
+
+#close-event-prod-image.active,
+#close-brand-manage-image.active,
+#close-philanthropy-image.active {
+  display: block;
+  position: absolute;
+  right: .5em;
+  top: -1.5em;
+  font-size: 1.5em;
+  z-index: 1;
+}
+
+#close-event-prod-image.active:hover,
+#close-brand-manage-image.active:hover,
+#close-philanthropy-image.active:hover {
+  border-bottom: 2px solid #f1f1f1;
+  cursor: pointer;
+}
+
+.image-modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.image-modal:hover {
+  border: none;
+}
+
+.brand-manage-images.image-modal {
+  height: fit-content;
+  background-color: rgba(0, 0, 0, .75);
+  background-image: url("../../public/images/diagonal-for-sections.svg");
+  padding: 15dvh 5dvw;
+  z-index: 3;
+  border-radius: 4px;
+}
+
+#brand-partnerships {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  position: relative;
+  height: fit-content;
+  min-height: fit-content;
+  margin-top: 3em;
+}
+
+@media screen and (min-width: 768px) {
+  #brand-partnerships {
+    font-size: 24px;
+  }
+}
+
+.brand-ad-container, 
+.global-partnerships-vid-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: .5em;
+  height: 60dvh;
+  min-height: fit-content;
+  max-height: fit-content;
+}
+
+.global-partnerships-vids:hover {
+  cursor: pointer;
+}
+ 
+.ad-img-container, 
+.ad-vid-container {
+  height: 90%;
+}
+
+
+.ad-vid-container:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .brand-ad-container {
+    height: 70dvh;
+  }
+}
+
+@media screen and (max-aspect-ratio: 2/3) {
+  .ad-img-container, 
+  .ad-vid-container {
+    height: 85%;
+  }
+}
+
+@media screen and (min-aspect-ratio: 67/100) 
+and (max-aspect-ratio: 3/4) and (min-height: 1200px) {
+  .ad-img-container, 
+  .ad-vid-container {
+    height: 55%;
+  }
+}
+
+.brand-partnerships-images, 
+.brand-partnerships-vids,
+.global-partnerships-vids {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-position: center 25%;
+  border-radius: 4px;
+}
+
+.next-slide, .prev-slide {
+  position: absolute;
+  font-size: 3em;
+  z-index: 2;
+  top: 45%;
+  opacity: .6;
+}
+
+.next-slide:hover, 
+.prev-slide:hover {
+  cursor: pointer;
+}
+
+.next-slide {
+  right: 0;
+}
+
+.prev-slide {
+  left: 0;
+}
+
+.carousel-counter {
+  min-height: fit-content;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: .75em;
+}
+
+.carousel-elipses {
+  height: .45em;
+  width: .45em;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+}
+
+.fill-elipse {
+  background-color: #f1f1f1;
+}
+
+@media screen and (min-width: 980px) {
+  .brand-ad-container {
+    display: flex;
+    height: 90dvh;
+  }
+
+  #brand-ad-description-cottonon,
+  #brand-ad-description-aflac,
+  #brand-ad-description-psd {
+    align-self: center;
+    width: 40%;
+  }
+
+  .brand-partnerships-vids {
+    width: 40%;
+    justify-self: center;
+    object-position: top;
+  }
+
+  .global-partnerships-vids {
+    width: 60%;
+  }
+}
+
+
+/**** 
+  SECONDARY NAV
+****/
+#secondary-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 2em 0 0;
+}
+
+#secondary-nav-btn-container{
+  display: flex;
+  position: relative;
+  align-self: start;
+  border-radius: 6px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+#on-the-court-btn, #off-the-court-btn {
+  padding: .25em 1em;
+  font-size: 14px;
+}
+
+#on-the-court-btn {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+#off-the-court-btn {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#on-the-court-btn:hover, 
+#off-the-court-btn:hover {
+  background-color: rgba(248, 131, 3, .75);
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
+.highlight {
+  background-color: rgba(248, 131, 3, .75);
+  color: #f1f1f1;
+}
+
+.plain {
+  background-color: rgb(223, 221, 216);
+  color: #000000;
+}
+
+#return-link {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+#return-link:hover {
+  color: rgba(248, 131, 3, .75);
+  text-decoration: underline;
+}
+
+.return-arrow {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 680px) {
+  #on-the-court-btn, #off-the-court-btn {
+    padding: .25em 1.5em;
+    font-size: 16px;
+  }
+}

@@ -4,6 +4,8 @@ import "./css/globals.css";
 import "./css/slash.css";
 import "./css/slash-intl.css";
 import "./css/animations.css";
+import "./css/our-work.css";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL || "http://localhost:3000"),

@@ -490,106 +490,22 @@ nav {
 }
 
 /*********
-  OUR WORK
+  Our Work
 **********/
-
-#our-work {
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100vw;
-  position: relative;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
 #our-work-wrapper {
-  top: 0;
-  height: 200dvh;
-  min-height: 200dvh;
-  width: 100%;
-  position: relative;
-}
-
-.our-work-scroll-container > h2 {
-  position: sticky;
-  top: 0;
-  left: 0;
-}
-
-.our-work-scroll-container {
-  display: flex;
-  flex-wrap: nowrap;
-  top: 4em;
   height: calc(100dvh - 8em);
-  width: 100%;
-  position: sticky;
-  will-change: transform;
-  gap: 10px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  overflow: hidden;
-  touch-action: none; 
-  overscroll-behavior-x: contain; 
-  -webkit-overflow-scrolling: auto;
-  border-radius: 4px;
 }
 
-.our-work-scroll-container:focus-visible {
-  outline: 2px solid #f88303;
-  outline-offset: 4px;
-}
-
-@media (pointer: coarse) {
-  #our-work-wrapper {
-    height: 150dvh;
-    min-height: 150dvh;
-  }
-  
-  .our-work-scroll-container {
-    gap: 0;
-    touch-action: none; 
-  }
-  
-  .our-work-scroll-container:not(.is-released) {
-    touch-action: none;
-  }
-
-  .our-work-scroll-container.is-released {
-    touch-action: auto !important;
-  }
-}
-
-.our-work-scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.our-work-paragraphs {
+.our-work-img-container {
   position: relative;
-  top: 6.1em;
-  height: 100dvh;
-  width: 100dvw;
-  min-width: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  height: 50%;
+  width: 85dvw;
+  right: calc(-15dvw);
+  border-radius: 4px;
+  opacity: .875;
 }
 
-.our-work-paragraphs > p {
-  height: fit-content;
-  width: 100%;
-  max-width: 500px;
-}
-
-.ourWork-img-container {
-  position: absolute;
-  top: 12dvh;
-  width: 100%;
-  height: 60%;
-  z-index: -1;
-  opacity: .75;
-}
-
-.ourWork-img-container::after {
+.our-work-img-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -598,172 +514,53 @@ nav {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, .15);
 }
 
-.ourWork-img {
+#our-work-img {
+  object-fit: cover;
   object-position: top;
-  transition: filter 0.5s ease-in-out;
-
 }
 
-
-.progress-container {
-  display: flex;
-  position: fixed;
-  top: calc(100dvh - 3.5em);
-  right: 0;
-  width: 70dvw;
-  padding: 0 1em;
+.our-work-link {
+  background-color: #f1f1f1;
+  color: #000000;
+  margin-top: 2em;
 }
 
-.progress-bar-container {
-  position: relative;
-  left: -.40em;
-  width: 100%;
-  height: 4px;
-  background: rgba(248, 248, 250, 0.2);
-  border-radius: 2px;
-  z-index: 100;
+.our-work-link:hover {
+  cursor: pointer;
+  background-color: #000;
+  border: 1px solid #f1f1f1;
+  color: #f1f1f1;
+  transition: background-color 0.6s ease;
 }
 
-.progress-bar {
-  height: 100%;
-  background: #f88303;
-  transition: width 0.6s ease;
-  border-radius: 2px;
+.our-work-link:focus-visible {
+  outline: 3px solid #f88303;
+  outline-offset: 4px;
 }
 
-.scroll-indicator {
-  position: sticky;
-  top: calc(100dvh - 3em);
-  left: 0;
-}
-
-.scroll-indicator-icon {
-  position: relative;
-  left: -.5em;
-  height: 2em;
-  width: 2em;
-  color: rgba(248, 248, 250, .5);
-  animation: blinkingArrow 1.5s ease-in-out 0s infinite;
-}
-
-
-@media screen and (orientation: portrait) and (min-width: 400px) {
-  .progress-container {
-    padding: 0 2em;
-  }
-
-  .scroll-indicator {
-    top: calc(100dvh - 3em);
+@media screen and (min-width: 980px) {
+  .our-work-img-container {
+    position: absolute;
+    height: 70%;
+    width: 60%;
+    right: 0;
+    bottom: 0;
   }
 }
 
-
-@media screen and (orientation: landscape) and (max-height: 540) {
-   .ourWork-img-container {
-      top: 10%;
-      width: 80%;
-      height: 50%;
-      justify-self: end;
-    }
-
-  .our-work-scroll-container {
-    height: calc(100dvh - 5em);
-  }
-
-  .our-work-paragraphs > p {
-    max-width: 450px;
-  }
-
-  .progress-container {
-    top: calc(100dvh - 3em);
-    padding: 0 4em;
-  }
-
-  .scroll-indicator {
-    top: calc(100dvh - 3.5em);
-  }
-}
-
-
-@media only screen and (min-width: 680px) and (min-height: 600px) {
-  .ourWork-img-container {
-    top: 10%;
-    width: 80%;
-  }
-
-  .our-work-paragraphs {
-    top: 8.1em;
-  }
-
-  .our-work-paragraphs > p {
-    max-width: 600px;
-  }
-
-  .progress-container {
-    top: calc(100dvh - 6em);
-    padding: 0 4em;
-  }
-
-  .scroll-indicator {
-    top: calc(100dvh - 6em);
-  }
-
-  .scroll-indicator-icon {
-    height: 3em;
-    width: 3em;
-  }
-}
-
-@media screen and (min-width: 830px) {
-  #our-work-wrapper {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    align-self: center;
+@media screen and (min-width: 980px) and (max-height: 1024px) {
+  .our-work-img-container {
+    height: 70%;
+    width: 50%;
   }
   
-  .progress-container {
-    justify-content: end;
-    top: calc(100dvh - 4em);
-    right: 5%;
-  }
-
-  .progress-bar-container {
-    position: relative;
-    right: 0;
-    width: 60%;
-  }
-
-  .scroll-indicator {
-    top: calc(100dvh - 4em);
-  }
-
-  .scroll-indicator-icon {
-    height: 3.5em;
-    width: 3.5em;
+  #our-work-wrapper > .style-paragraphs {
+    width: 45%;
   }
 }
-
-
-@media only screen and (min-width: 1024px) {
-  .ourWork-img-container {
-    width: 80%;
-    height: 70%;
-    justify-self: start;
-  }
-
-  .progress-container {
-    top: calc(100dvh - 3em);
-  }
-
-  .scroll-indicator {
-    top: calc(100dvh - 3.5em);
-  }
-}
-
 
 @media screen and (min-width: 1260px) {
   .wrapper {

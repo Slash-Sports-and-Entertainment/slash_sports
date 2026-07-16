@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { StaticImport, StaticImageData } from "next/dist/shared/lib/get-img-props";
 
 export type RootLayoutProps = Readonly<{
     children: React.ReactNode;
@@ -28,4 +28,22 @@ export type HorizontalScrollReturn = {
   triggerRef: RefObject<HTMLDivElement | null>;
   progress: number;
   isSectionVisible: boolean;
+}
+
+export type ImageSlide = {
+  id: string;
+  description: string;
+  media: StaticImageData;
+  type: "image";
+  alt: string;
+}
+
+export type VideoSlide = {
+  id: string;
+  description: string;
+  media: string;
+  type: "video";
+  poster: string;
+  alt: string;
+  format: string;
 }
