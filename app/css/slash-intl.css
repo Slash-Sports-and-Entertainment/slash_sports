@@ -14,9 +14,15 @@
   height: calc(100dvh - 8em);
 }
 
+#about-us-front-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 #about-us-img-container {
   position: absolute;
-  height: 75%;
+  height: 85%;
   width: 80%;
   bottom: 0;
   right: 0;
@@ -25,6 +31,24 @@
   z-index: -1;
   opacity: .75;
 }
+
+.paragraph-container {
+  overflow-y: auto;
+  scrollbar-width: auto;
+  -ms-overflow-style: auto;
+  padding-right: 12px;
+}
+
+.paragraph-container::-webkit-scrollbar {
+  display: block;
+  width: 6px
+}
+
+.paragraph-container::-webkit-scrollbar-thumb {
+  background-color: rgba(248, 131, 3, .5);
+  border-radius: 4px;
+}
+
 
 #about-us-img {
   object-fit: cover;

@@ -19,8 +19,9 @@ export default function SlashIntlHome() {
       <section id="hero-slashIntl" aria-label="Introduction">
         <div id="slashIntl-wrapper" className="wrapper">
           <h1 className="headline">
-            WHERE ELITE TALENT<br/>
-            MEETS THE GLOBAL GAME.
+            SLASH International &mdash;
+            Where the Global Game
+            Meets the NBA.
           </h1>
           <div className="headline-image-container">
             <Image 

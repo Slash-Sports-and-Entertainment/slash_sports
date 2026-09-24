@@ -1,45 +1,6 @@
 export const testimonials = [
   {
     id: 0,
-    firstName: "Aaron",
-    lastName: "White",
-    quote: `"I made the switch to Charles and Bugra 
-    during a very difficult time in my career, and 
-    it’s one of the best decisions I’ve ever made. 
-    From day one, they have gone above and beyond 
-    not only as agents but as supporters of me and 
-    my family. Their approach, honesty, and commitment 
-    have given me peace and allowed me to stay in 
-    the market I want to be! They’ve put my best 
-    interests first and treated me like more than 
-    just a client. I’m grateful for everything they’ve 
-    done and continue to do for us!"`,
-    image: "/images/aaron-white.png",
-    alt: "Photo of SLASH basketball athlete Aaron White"
-  },
-  {
-    id: 1,
-    firstName: "Ryan",
-    lastName: "Kelly",
-    quote: `"When my close friend and agent decided to 
-    change professions after my 10th year as a pro with 
-    him, it wasn’t easy putting my trust in someone 
-    new—especially overseas. After a recommendation 
-    from Slash client James Michael McAdoo, I took a 
-    meeting with Charles. He promised that Slash just 
-    wanted to be additive and there for whatever I 
-    needed at this point in my career. That was the 
-    truth. Charles and Bugra have done nothing but care 
-    for my family and me since signing with them. They 
-    are on top of every detail- always supportive, 
-    communicative, and wanting to help. Placing my 
-    trust in them has set me up to finish my career in 
-    a great place."`,
-    image: "/images/ryan-kelly.png",
-    alt: "Photo of SLASH basketball athlete Ryan Kelly"
-  },
-  {
-    id: 2,
     firstName: "Isaiah",
     lastName: "Austin",
     quote: `"Charles is more than an agent to me. He’s 
@@ -64,36 +25,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Isaiah Austin"
   },
   {
-    id: 3,
-    firstName: "Thomas",
-    lastName: "Wimbush",
-    quote: `"Since joining Slash I've been extremely 
-    happy with my progress in my career path and more 
-    importantly my relationship with Charles & Bugra. 
-    We created a family type relationship that usually 
-    you don’t get in this business and I want to thank 
-    Slash management for welcoming me and my family."`,
-    image: "/images/thomas-wimbush.jpeg",
-    alt: "Photo of SLASH basketball athlete Thomas Wimbush"
-  },
-  {
-    id: 4,
-    firstName: "Brock",
-    lastName: "Motum",
-    quote: `"Moving to Slash with Charles and Buğra 
-    has been hands down the best decision I have made 
-    in my career. I was representing myself at the time 
-    as I’d had enough of getting lost in the mix by 
-    past agents. Since joining slash they have 
-    presented opportunities I could’ve only dreamt of a 
-    couple of years ago. I now think what could’ve been 
-    if I had joined them earlier in my career. Beyond 
-    grateful and changed my life. Thank you guys!"`,
-    image: "/images/brock-motum.jpeg",
-    alt: "Photo of SLASH basketball athlete Brock Motum"
-  },
-  {
-    id: 5,
+    id: 1,
     firstName: "Nick",
     lastName: "Rakocevic",
     quote: `"Im so blessed & thankful to have made the 
@@ -110,24 +42,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Nick Rakocevic"
   },
   {
-    id: 6,
-    firstName: "Coty",
-    lastName: "Clarke",
-    quote: `"During the prime of my career I wanted to 
-    capitalize on my future endeavors. I put my faith 
-    in my lord and savior Jesus Christ and was lead to 
-    Slash to help further my career. Charles and Bugra 
-    have always been open minded, honest, patient and 
-    prescient.  They are truly for the player while 
-    conducting business. They never question my worth 
-    - they only help people value me and they stood on 
-    businesses every time. Very thankful and grateful 
-    to be a part of Slash Sports."`,
-    image: "/images/coty-clarke.jpeg",
-    alt: "Photo of SLASH basketball athlete Coty Clarke"
-  },
-  {
-    id: 7,
+    id: 2,
     firstName: "Patrick",
     lastName: "Miller",
     quote: `"Ever since I first talked to Charles I 
@@ -148,22 +63,54 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Patrick Miller"
   },
   {
-    id: 8,
-    firstName: "Johnny",
-    lastName: "O'Bryant",
-    quote: `"I signed with Slash at a pivotal point in 
-    my career, and they were instrumental in helping me 
-    make an important leap from one market to another. 
-    The team has consistently had my back through every 
-    challenge, big or small, and having an agency that 
-    picks up the phone any time you call is vital for a 
-    player overseas. I couldn’t have asked for a better 
-    agency to represent me."`,
-    image: "/images/johnny-obryant.jpeg",
-    alt: "Photo of SLASH basketball athlete Johnny O'Bryant"
+    id: 3,
+    firstName: "Aaron",
+    lastName: "White",
+    quote: `"I made the switch to Charles and Bugra 
+    during a very difficult time in my career, and 
+    it’s one of the best decisions I’ve ever made. 
+    From day one, they have gone above and beyond 
+    not only as agents but as supporters of me and 
+    my family. Their approach, honesty, and commitment 
+    have given me peace and allowed me to stay in 
+    the market I want to be! They’ve put my best 
+    interests first and treated me like more than 
+    just a client. I’m grateful for everything they’ve 
+    done and continue to do for us!"`,
+    image: "/images/aaron-white.png",
+    alt: "Photo of SLASH basketball athlete Aaron White"
   },
   {
-    id: 9,
+    id: 4,
+    firstName: "Thomas",
+    lastName: "Wimbush",
+    quote: `"Since joining Slash I've been extremely 
+    happy with my progress in my career path and more 
+    importantly my relationship with Charles & Bugra. 
+    We created a family type relationship that usually 
+    you don’t get in this business and I want to thank 
+    Slash management for welcoming me and my family."`,
+    image: "/images/thomas-wimbush.jpeg",
+    alt: "Photo of SLASH basketball athlete Thomas Wimbush"
+  },
+  {
+    id: 5,
+    firstName: "Brock",
+    lastName: "Motum",
+    quote: `"Moving to Slash with Charles and Buğra 
+    has been hands down the best decision I have made 
+    in my career. I was representing myself at the time 
+    as I’d had enough of getting lost in the mix by 
+    past agents. Since joining slash they have 
+    presented opportunities I could’ve only dreamt of a 
+    couple of years ago. I now think what could’ve been 
+    if I had joined them earlier in my career. Beyond 
+    grateful and changed my life. Thank you guys!"`,
+    image: "/images/brock-motum.jpeg",
+    alt: "Photo of SLASH basketball athlete Brock Motum"
+  },
+  {
+    id: 6,
     firstName: "Ray",
     lastName: "Parks Jr.",
     quote: `"Joining Slash Sports was without a doubt 
@@ -193,7 +140,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Ray Parks Jr."
   },
   {
-    id: 10,
+    id: 7,
     firstName: "Lisa",
     lastName: "Green",
     quote: `"Charles was my son’s agent, though I felt 
@@ -210,7 +157,7 @@ export const testimonials = [
     alt: "Photo of Lisa Green mother of Former SLASH athlete"
   },
   {
-    id: 11,
+    id: 8,
     firstName: "Pierre",
     lastName: "Jackson",
     quote: `"Ever since I made the decision to look for 
@@ -226,7 +173,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Pierre Jackson"
   },
   {
-    id: 12,
+    id: 9,
     firstName: "Marvelle",
     lastName: "Harris",
     quote: `"Charles changed my life and career. He 
@@ -245,7 +192,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete Marvelle Harris"
   },
   {
-    id: 13,
+    id: 10,
     firstName: "James",
     lastName: "McAdoo",
     quote: `"My career was at a crossroads one that I 
@@ -259,7 +206,7 @@ export const testimonials = [
     alt: "Photo of SLASH basketball athlete James McAdoo"
   },
   {
-    id: 14,
+    id: 11,
     firstName: "Lauren",
     lastName: "McAdoo",
     quote: `"Choosing an agent is one of the hardest 
@@ -276,7 +223,7 @@ export const testimonials = [
     alt: "Photo of Lauren McAdoo wife of SLASH athlete James McAdoo"
   },
   {
-    id: 15,
+    id: 12,
     firstName: "Marcus",
     lastName: "Ginyard",
     quote: `"I was lucky to have an 11 year professional 

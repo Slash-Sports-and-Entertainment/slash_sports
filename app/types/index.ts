@@ -47,3 +47,5 @@ export type VideoSlide = {
   alt: string;
   format: string;
 }
+
+export type SlideItem = ImageSlide | VideoSlide;
